@@ -1,13 +1,22 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
+#if WINDOWS_UWP
 using Windows.Storage;
+#else
+using CodePush.Net46.Adapters.Storage;
+using System.IO;
+#endif
 
 namespace CodePush.ReactNative
 {
     internal class SettingsManager
     {
+#if WINDOWS_UWP
         private static ApplicationDataContainer Settings = ApplicationData.Current.LocalSettings.CreateContainer(CodePushConstants.CodePushPreferences, ApplicationDataCreateDisposition.Always);
+#else
+        private static ApplicationDataContainer Settings = new ApplicationDataContainer(Path.Combine(CodePushUtils.GetAppFolder(), CodePushConstants.CodePushFolderPrefix, CodePushConstants.CodePushPreferences));
+#endif
 
         public static JArray GetFailedUpdates()
         {
