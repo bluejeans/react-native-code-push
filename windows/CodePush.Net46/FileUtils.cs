@@ -36,8 +36,10 @@ namespace CodePush.ReactNative
             var pathToAssembly = CodePushUtils.GetAppFolder();
             var pathToAssemblyResource = Path.Combine(pathToAssembly, CodePushConstants.AssetsBundlePrefix, fileName);
             var lastUpdateTime = File.GetCreationTime(pathToAssemblyResource);
-
-            return Task.FromResult(new DateTimeOffset(lastUpdateTime).ToUnixTimeMilliseconds());
+            
+            long unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).Millisecond;
+            long result = lastUpdateTime.ToUniversalTime().Millisecond - unixEpoch;
+            return Task.FromResult(result);
         }
 
         internal async static Task CopyFileAsync(string sourcePath, string destinationPath)
