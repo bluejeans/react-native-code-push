@@ -1,6 +1,6 @@
 {
   "name": "@bluejeans/react-native-code-push",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "React Native plugin for the CodePush service",
   "main": "CodePush.js",
   "typings": "typings/react-native-code-push.d.ts",
@@ -17,7 +17,7 @@
     "url": "https://github.com/bluejeans/react-native-code-push"
   },
   "dependencies": {
-    "@bluejeans/react-native-windows": "^0.42.1-rc.14",
+    "@bluejeans/react-native-windows": "^0.42.1-rc.15",
     "code-push": "1.11.2-beta",
     "glob": "^5.0.15",
     "inquirer": "1.1.2",
