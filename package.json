@@ -17,7 +17,6 @@
     "url": "https://github.com/bluejeans/react-native-code-push"
   },
   "dependencies": {
-    "@bluejeans/react-native-windows": "^0.42.1-rc.15",
     "code-push": "1.11.2-beta",
     "glob": "^5.0.15",
     "inquirer": "1.1.2",
